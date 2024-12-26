@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int numberOfBeams(vector<string>& bank) {
+        int m=bank.size();    // no of rows
+        int n=bank[0].size(); // no of columns
+        int previous=0;
+        int ans=0;
+        for(int i=0;i<m;i++)   // iterate through rows
+        {
+            int current=0;
+            for(int j=0;j<n;j++)   // iterate through columns
+            {
+                if(bank[i][j]=='1')  
+                current++;           // increase current when found '1'
+            }
+              if(current!=0)
+            {
+                ans+=current*previous;
+                previous=current;
+            }
+        }
+        return ans;
+        
+    }
+};
