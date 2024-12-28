@@ -1,0 +1,46 @@
+class Solution {
+public:
+
+    // calculate the sum of squares of digits
+    // int totalsum(int n)
+    // {
+    //     int digits;
+    //     int sum=0;
+    //     while(n>0)
+    //     {
+    //         digits=n%10;
+    //         sum+=digits*digits;
+    //         n/=10;
+
+    //     }
+    //     return sum;
+    // }
+     bool isHappy(int n) {
+        // set<int>s;
+        // while(s.find(n)==s.end())  // check weather the number is present
+        // {
+        //     s.insert(n);
+        //     n=totalsum(n);
+        //     if(n==1)        // base case
+        //     return true;
+        // }
+        // return false;
+        
+        int digits;
+        int temp;
+        while(n>9)
+        {
+            int sum=0;
+            while(n>0){
+            digits=n%10;
+            sum+=digits*digits;
+            n/=10;
+            }
+          n=sum;
+        }
+        if(n==1 || n==7) //in single digits only 1 and 7 are happynumber.
+        return true;
+        return false;
+        
+    }
+};
