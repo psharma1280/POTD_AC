@@ -1,0 +1,13 @@
+class Solution {
+public:
+    int minPartitions(string n) {
+        int count=0;
+        for(int i=0;i<n.size();i++)
+        {
+            int a=n[i]-'0';      // convert each char of string into integer
+            count=max(a,count);  // always return the mx digits of the no
+        }
+        return count;
+        
+    }
+};
