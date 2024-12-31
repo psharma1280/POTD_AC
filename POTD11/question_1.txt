@@ -1,0 +1,31 @@
+class Solution {
+public:
+    string reverseWords(string s) {
+        int n=s.size();
+        string temp;  // storing the result
+
+        // step1:REVERESE THE ENTIRE STRING
+        reverse(s.begin(),s.end());
+
+        for(int i=0;i<n;i++)
+        {
+            string word;        // count the individul word
+            while(i<n && s[i]!=' ')
+            {
+                word+=s[i];
+                i++;
+            }
+            // step2:REVERSE EACH WORD
+            reverse(word.begin(),word.end());
+
+            if(word.size()>0)
+            {
+                temp+= ' '+word;  //it gives space between each word
+            }
+        }
+     return temp.substr(1); // it simply return string from ind 1-n except 0tn ind.
+
+       
+        
+    }
+};

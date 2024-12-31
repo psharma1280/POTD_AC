@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int matching(string &a,string &b)
+    {
+        int count=0;
+        int n=min(a.size(),b.size());
+        for(int i=0;i<n;i++)
+        {
+            if(a[i]==b[i])  
+            count++;   // count the total no of prefix which is same
+            else break;
+        }
+        return count;
+    }
+    string longestCommonPrefix(vector<string>& strs) {
+        int n=strs.size();
+        string temp=strs[0];  // storing the required result
+        for(int i=1;i<n;i++)
+        {
+            // compare with the element next to it i.e in pairs
+            int matchcount=matching(strs[i],temp);
+            temp=temp.substr(0,matchcount);  // stores the prefix
+        }
+        return temp;
+        
+        
+    }
+};
