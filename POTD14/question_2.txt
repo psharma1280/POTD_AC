@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+// Fast Input/Output
+#define ios_fast() ios_base::sync_with_stdio(false); cin.tie(NULL);
+
+// Debug Macro (Optional)
+#define debug(x) cout << #x << " = " << x << endl;
+
+// Function to handle a single test case
+void solve() {
+    int n;
+    cin >> n;  // Input the size of the array
+    
+    int arr[n];  //  array to store input
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    
+    ll ones = 0, zeros = 0;
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == 1) ones++;
+        else if (arr[i] == 0) zeros++;
+    }
+
+    ll ans = ones*pow(2,zeros);  
+    cout << ans << "\n";
+}
+
+int main() {
+    ios_fast();  // Fast I/O
+    
+    int t;
+    cin >> t;  // Number of test cases
+    
+    while (t--) {
+        solve();  // Handle each test case
+    }
+    return 0;
+}
