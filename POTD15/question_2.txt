@@ -1,0 +1,22 @@
+class Solution {
+public:
+    bool winnerOfGame(string colors) {
+        int n=colors.size();
+        int alice=0;
+        int bob=0;
+        for(int i=1;i<n-1;i++)  // removing the edge index
+        {
+            int curr=colors[i];
+            int pre=colors[i-1];
+            int next=colors[i+1];
+
+           if(curr=='A' && pre=='A' && next=='A')
+           alice++;
+
+           else if(curr=='B' && pre=='B' && next=='B')
+           bob++;
+        }
+
+        return alice>bob;
+    }
+};s

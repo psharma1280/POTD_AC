@@ -1,0 +1,51 @@
+class Solution {
+public:
+    vector<int> minOperations(string boxes) {
+        // vector<int>ans;
+        // int n=boxes.size();
+        // for(int i=0;i<n;i++)
+        // {
+        //     int count=0;
+        //     for(int j=0;j<n;j++)
+        //     {
+        //         if(boxes[j]=='1')
+        //         {
+        //             count+=abs(i-j);
+        //         }
+        //     }
+        //     ans.push_back(count);
+        //  }
+        //  return ans;
+
+         // approach:2(prefix sum)
+
+         int n=boxes.size();
+         vector<int>left(n,0),right(n,0);
+         int count=0;
+         left[0]=0;
+         for(int i=1;i<n;i++){
+            if(boxes[i-1]=='1'){
+            count++;
+            }
+            left[i]=count+left[i-1];
+         }
+
+         count=0;
+         right[n-1]=0;
+         for(int i=n-2;i>=0;i--)
+         {
+            if(boxes[i+1]=='1'){
+            count++;
+            }
+            right[i]=count+right[i+1];
+         }
+         vector<int>ans(n);
+         for(int i=0;i<n;i++)
+         {
+            ans[i]=left[i]+right[i];
+         }
+         return ans;
+            
+        
+    }
+};
