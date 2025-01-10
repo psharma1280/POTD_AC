@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int arrangeCoins(int n) {
+        if(n==1)
+        return 1;
+        int a=1;   // indicating the no of elements in each row starting from 1
+        int count=0;
+        while(n>0)
+        {
+           n=n-a;
+           count++;
+           a++;
+        }
+        if(n==0){
+        return count;
+        }
+    return (count-1);  // if we return count only then we are taking that case in which all rows are full.
+    }
+};
