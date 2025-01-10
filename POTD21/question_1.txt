@@ -1,0 +1,35 @@
+class Solution {
+public:
+
+  long long func(vector<int>&arr,int hourly) {
+      int n=arr.size();
+      long long totalhours=0;
+      for(int i=0;i<n;i++)
+      {
+        totalhours+=ceil((double)arr[i]/(double)hourly);
+      }
+      return totalhours;
+  }
+  int minEatingSpeed(vector<int>& piles, int h) {
+        int low=1;
+        int high=*max_element(piles.begin(),piles.end());
+        int ans=0;
+        // applying BS
+        while(low<=high)
+        {
+            int mid=(low+high)/2;
+            long long totalhours=func(piles,mid);
+            // to find the actual position of ans move accordingly:-   
+            if(totalhours<=h)
+                {
+                    ans=mid;
+                    high=mid-1;
+                }
+                else
+                {
+                    low=mid+1;
+                }
+        }
+        return ans;
+    }
+};
